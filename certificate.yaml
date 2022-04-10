@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wdzhao.cnnmp.com
+  namespace: learn
+spec:
+  dnsNames:
+  - wdzhao.cnnmp.com
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-learn
+  secretName: wdzhao

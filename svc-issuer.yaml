@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: learn
+spec:
+  finalizers:
+  - kubernetes
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  generation: 1
+  name: letsencrypt-learn
+  namespace: learn
+spec:
+  acme:
+    email: wd.zhao@qq.com
+    preferredChain: ""
+    privateKeySecretRef:
+      name: letsencrypt-learn
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpsvc
+  namespace: learn
+spec:
+  selector:
+    app: httpserver
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
