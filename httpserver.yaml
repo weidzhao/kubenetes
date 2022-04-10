@@ -53,6 +53,8 @@ spec:
           requests:
             cpu: 250m
             memory: 512Mi
+      imagePullSecrets:
+        - name: swr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       terminationGracePeriodSeconds: 30

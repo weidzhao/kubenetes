@@ -1,0 +1,5 @@
+kubectl create secret docker-registry swr \
+  --docker-server=registry.cn-hongkong.aliyuncs.com/cnnmp/learn \
+  --docker-username=xxx \
+  --docker-password=xxx \
+  --docker-email=wd.zhao@qq.com
