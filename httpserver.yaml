@@ -55,6 +55,11 @@ spec:
             memory: 512Mi
       imagePullSecrets:
         - name: swr
+      lifecycle:
+        preStop:
+          exec:
+            command:      
+              - "kill -15 1"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
