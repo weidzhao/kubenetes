@@ -1,1 +1,1 @@
-# kubenetes
+# kubernetes
